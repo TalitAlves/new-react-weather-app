@@ -4,7 +4,7 @@ export default function Footer(){
     return(
         <div className="footer">
         <a
-        href="https://github.com/TalitAlves/react-weather-app"
+        href="https://github.com/TalitAlves/new-react-weather-app.git"
         target="blank" >
         Open-sorce code 
       </a>
