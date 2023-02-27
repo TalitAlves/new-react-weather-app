@@ -28,7 +28,7 @@ export default function MainWeather(props){
             icon: response.data.condition.icon_url
        })
         setStatus(true)
-        console.log(response)
+       
     }
 
     function search(){

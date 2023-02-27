@@ -7,22 +7,20 @@ import { ThreeDots } from 'react-loader-spinner'
 
 export default function Forecast5Days (props){
  
-const[status, setStatus]=useState(false);
+const[forecastStatus, setForecastStatus]=useState(false);
 const [forecast, setForecast]=useState("")
 
     useEffect(()=> {
-        setStatus(false)
+        setForecastStatus(false)
       },[props.coordinates] );
 
     function handleForecast(response){
         setForecast(response.data.daily)
-        setStatus(true)
-        console.log(response)
-
-    }
+        setForecastStatus(true)
+     }
 
 
-if(status){
+if(forecastStatus){
 
     return(
         <div>
@@ -38,10 +36,10 @@ if(status){
                 </div> 
         </div>
     )}else{
-        let key = "40430ba55fc1o6890ct12a8363f6d64d";
+        let ApiKey = "40430ba55fc1o6890ct12a8363f6d64d";
         let lon = props.coordinates.longitude;
         let lat = props.coordinates.latitude;
-        let apiURL = `https://api.shecodes.io/weather/v1/forecast?lon=${lon}&lat=${lat}&key=${key}`;
+        let apiURL = `https://api.shecodes.io/weather/v1/forecast?lon=${lon}&lat=${lat}&key=${ApiKey}`;
         axios.get(apiURL).then(handleForecast);
         
         return(<div className="loader">
